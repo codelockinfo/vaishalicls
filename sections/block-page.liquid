@@ -1,0 +1,367 @@
+<div class="main-container">
+  <div class="container">
+    <div class="main-box">
+        <div class="heding">
+          <h1>{{ section.settings.heading }}</h1>
+        </div>
+      <div class="mon-year">
+        <p>Monthly</p>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+         </label>
+        <p>Yearly</p>
+      </div>
+    <div class="main-block">
+          {% for block in section.blocks %}
+        <div class="inner-info">
+            {% if block.settings.subheading != blank %}
+          <h3>{{ block.settings.subheading }}</h3>
+              {% endif %}
+          <div class="block-img">
+           <img src="{{ block.settings.slide_image | img_url:"master" }}"  />
+          </div>
+          <div class="pragraph">
+              <p>{{ block.settings.pragraph-1  }}</p>
+             <p>{{ block.settings.pragraph-2 }}</p>
+             <p>{{ block.settings.pragraph-3 }}</p>
+          </div>
+            <p class="prici">{{ block.settings.pragraph-4 }}</p>
+          <div class="btn">
+            <a href ="#">ADD TO CART</a>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "order-details",
+    "settings": [    
+          {
+        "id" : "heading",
+        "type" : "text",
+        "label" : "Heading"
+      }
+        
+    ],
+    "blocks":[
+  {
+  "name":"block",
+  "type":"block",
+  "settings":[
+        {
+      "id" : "textblock",
+      "type" : "text",
+      "label" : "Button"
+    },
+      {
+      "id" : "url",
+      "type" : "url",
+      "label" : "URL"
+    },
+    {
+       "id": "slide_image",
+      "type":"image_picker",
+      "label" : "Image"
+      },
+    
+        {
+      "id" : "subheading",
+      "type" : "text",
+      "label" : "Sub Heading"
+    },
+      {
+      "id" : "txt1",
+      "type" : "richtext",
+      "label" : "Text Sub Heading"
+    },
+       {
+      "id" : "pragraph-1",
+      "type" : "text",
+      "label" : "Text Sub Heading"
+    },
+     {
+      "id" : "pragraph-2",
+      "type" : "text",
+      "label" : "Text Sub Heading"
+    }, 
+    {
+      "id" : "pragraph-3",
+      "type" : "text",
+      "label" : "Text Sub Heading"
+    },
+      {
+      "id" : "pragraph-4",
+      "type" : "text",
+      "label" : "Text Sub Heading"
+    },
+          {
+      "id" : "para",
+      "type" : "text",
+      "label" : "Paragraph"
+    }
+  ]
+  }
+  ],
+    "presets" : [
+      {
+        "name" : "block-page"
+      }
+    ]
+  }
+{% endschema %}
+
+<style>
+  *{
+    margin:0px;
+    padding:0px;
+    over-flow:hidden;
+  }
+  .main-container{
+    background-color:#F5F5F5;
+    padding: 60px 0px 75px 0px;
+  }
+  .container{
+    max-width:1150px;
+    margin:0 auto;
+  }
+
+  .heding h1{
+     font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 100px;
+    line-height: 60px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #000000;
+  }
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 65px;
+    height: 38px;
+    margin: 0px 15px;
+}
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 32px;
+    width: 29px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+  .mon-year {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-right: 10px;
+    padding: 52px 0px 0px 0px;
+}
+  .mon-year p {
+/*    font-family: 'Poppins'; */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    color: #000000;
+   
+}
+.main-block {
+    display: flex;
+  
+}
+ .inner-info{
+   border:1px solid black;
+   width:33.33%;
+   text-align: center;
+   font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+  margin:25px 10px 10px 10px;
+   padding: 30px 0px 20px 0px;
+ }
+  .inner-info h3 {
+    padding-bottom: 30px;
+     max-width: 220px;
+    margin: 0 auto;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 29px;
+    line-height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000000;
+  }
+  .inner-info p {
+    max-width: 200px;
+    margin: 0 auto;
+    
+}
+.block-img {
+    width: 85%;
+    margin: 0 auto;
+    /* height: 39%; */
+}
+  .block-img img {
+    width: 100%;
+}
+  .pragraph {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 50px;
+    text-align: center;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    color: #000000;
+    margin-top: 65px;
+}
+  .btn {
+    background-color: #000000;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    padding: 15px 0px;
+    margin: 0px 20px;
+}
+   .btn a{
+     color:#ffff;
+   }
+  .prici{
+     font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 50px;
+    text-align: center;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    color: #000000;
+    padding: 40px 0px 25px 0px;
+  }
+    @media(max-width:1199px){
+
+.main-block {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+}
+      .mon-year {
+    width: 93%;
+}
+    }
+    @media(max-width:768px){
+        .main-box {
+          width: 87%;
+          margin: 0 auto;
+      }
+       .inner-info {
+          width: 100%;      
+          margin: 0px 0px 26px 0px;
+          padding: 33px 0px 0px 0px;
+      }
+        .main-block {
+          display: initial;
+      }
+       .block-img {
+          width: 95%;
+          margin: 0 auto;
+      } 
+      .mon-year{
+        margin-bottom: 30px;
+        padding: 44px 0px 0px 0px;
+      }
+ 
+      .btn{
+        margin:0px;
+      }
+      .heding h1{
+        font-size:50px;
+      }
+      .inner-info h3 {
+        padding-bottom: 18px;
+      }
+      .pragraph{
+        margin-top: 26px;
+      }
+      .prici{
+        padding: 28px 0px 10px 0px;
+      }
+      .main-container{
+            padding: 27px 0px 60px 0px;
+      }
+    }
+</style>
+
+
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

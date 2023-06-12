@@ -1,0 +1,303 @@
+{% comment %} <h1>{{ section.settings.heading }}</h1> {% endcomment %}
+
+<button id="myBtn">Add new address</button> 
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h1>YOUR ADDRESS</h1>
+    {% form 'contact' %}
+  {{ form.errors | default_errors }}
+<div class="input-id">
+      <div class="first-name">
+        <input type="text" name="contact" placeholder="FIRST NAME" id="first-name" />
+      </div>
+    
+      <div class="first-name">
+        <input type="email" name="contact" placeholder="LAST EMAIL" id="first-name" />
+      </div>
+</div>
+    <div class="input-id">
+      <div class="first-name">
+        <input type="tel" name="contact[phone]" placeholder="EMAIL" id="first-name" />
+      </div>
+    
+      <div class="first-name">
+        <input type="email" name="contact[email]" placeholder="PHONR NUMBER" id="first-name" />
+      </div>
+</div>
+    <div class="input-id">
+      <div class="request-type">
+        <select id="request-type" >
+          <option>COUNTRY</option>
+          <option>SHIPPING</option>
+          <option>CUSTOM ORDER</option>
+          <option>OTHER</option>
+        </select>
+      </div>
+      
+      <div class="first-name">
+        <input type="email" name="contact[email]" placeholder="POSTAL CODE" id="first-name" />
+      </div>
+        </div>
+      <div class="first-name">
+        <input type="text" name="contact[email]" placeholder="ADDRESS" id="address" />
+    </div>
+
+   <div class="first-name">
+        <input type="text" name="contact[email]" placeholder="ADDRESS COMPLEMENT" id="address" />
+    </div>
+  <div class="address">
+    <input type="submit" value="SUBMIT" />
+  </div>
+{% endform %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "popup",
+    "settings": [    
+          {
+        "id" : "heading",
+        "type" : "text",
+        "label" : "Heading"
+      }
+        
+    ],
+    "presets" : [
+      {
+        "name" : "popup-sec"
+      }
+    ]
+  }
+{% endschema %}
+
+
+
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+ .request-type {
+    background-image: url("https://cdn.shopify.com/s/files/1/0610/0916/6512/files/download.png?v=1686313676");
+      background-position: right 10px bottom 18px;
+  background-repeat: no-repeat;
+  background-size: auto 50%;
+}
+  select{
+    -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  }
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 5; 
+/*   padding-top: 100px;
+  left: 0;*/
+  top: 0; 
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 160px auto;
+    padding: 37px 36px 70px 80px;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 1150px;
+}
+
+.close {
+    color: #fff;
+    float: right;
+    font-size: 22px;
+/*     font-weight: bold; */
+    background-color: black;
+    padding: 0px 10px;
+}
+
+.close:hover,
+.close:focus {
+  color: #aaaaaa;
+  text-decoration: none;
+  cursor: pointer;
+}
+  button#myBtn:hover{
+      cursor: pointer;
+  }
+  button#myBtn {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    margin: 20px 0px 0px 50px;
+}
+  .modal-content h1 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 100px;
+    line-height: 120px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #000000;
+    padding: 0px 0px 60px 0px;
+
+}
+  .input-id {
+    display: flex;
+    justify-content: space-between;
+}
+form#contact_form {
+    max-width: 650px;
+}
+
+
+  input#first-name {
+    width: 308px;
+}
+    input[type="text"], input[type="email"],input[type="tel"] {
+     border: none;
+    outline: none;
+    background: none;
+    box-shadow: none;
+      }
+  input#first-name {
+    border: 1px solid #CECDC9;
+        padding: 10px;
+}
+input::placeholder {
+        color: #CECDC9;
+        opacity: 1;
+      }
+.first-name {
+    margin-bottom: 13px;
+}
+
+input#address {
+    width: 100%;
+    border: 1px solid #CECDC9;
+    padding: 10px;
+}
+input[type="submit"] {
+    background-color: black;
+    color: #ffff;
+    padding: 13px 20px;
+    width: 362px;
+    margin-top: 25px;
+}
+  select#request-type {
+    width: 308px;
+     padding: 10px;
+         border: none;
+    outline: none;
+    background: none;
+    box-shadow: none;
+    border: 1px solid #CECDC9;
+    color: #CECDC9;
+}
+ @media (max-width:1199px){
+   .modal-content{
+         width: 90%;
+   }
+   .heding h1 {
+    width: 90%;
+    margin: 0 auto;
+}
+ }
+
+ @media (max-width:991px){
+ .modal-content {
+       position: fixed;
+   margin: 50px ;
+ }
+ }
+ @media (max-width:768px){
+    .modal-content h1 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 55px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    padding:0px;
+
+   }
+ 
+      .heding h1 {
+    width: 90%;
+    margin: 0;
+}
+  form#contact_form{
+    max-width:auto;
+  }
+  input#first-name {
+    width: 100%;
+  }
+  .input-id {
+    display: inherit;
+  }
+ .modal-content {
+     position: fixed;
+    margin: 80px 37px;
+    padding: 24px 30px 30px 30px;
+    margin: 50px 39px;
+   
+  }
+  input[type="submit"]{
+    width: 100%;
+  }
+   select#request-type {
+   width: 100%;
+     margin-bottom: 13px;
+  }
+ @media (max-width:576px){
+ .modal-content {
+    margin: 80px 28px;
+   
+ }
+   .heding h1 {
+    font-size: 45px;
+}
+ }
+
+</style>
+  
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>

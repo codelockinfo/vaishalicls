@@ -1,0 +1,358 @@
+{% assign collection = section.settings.collection %}
+<div class = "container">
+  <div class="product-main">
+    {% for product in collections[collection].products limit: section.settings.product-number %}
+        <div class = "product">
+            <a href = "#">
+              <div class = "over-flow reveal">
+                  <img src="{{ product.featured_image.src | img_url:'master' }}" alt="{{ product.title }}">
+                  <img class="hidden" src="{{ product.images.last | img_url: 'master' }}" alt="{{ product.images.last.alt | escape }}" />
+              </div>
+  
+                 <h3 class="title">{{ product.title }}</h3>
+                 <p class="price">{{ product.price | money }}</p>
+               <div class="color-item">
+                    <span class="t4s-pr-color__item">
+                      <span class="t4s-pr-color__name">Blue</span>
+                      <span class="t4s-pr-color__value bg_color_blue lazyloadt4sed"></span>
+                    </span>
+                        <span class="t4s-pr-color__item color-green">
+                        <span class="t4s-pr-color__name">Blue</span>
+                        <span class="t4s-pr-color__value bg_color_blue lazyloadt4sed"></span>
+                      </span>
+                        <span class="t4s-pr-color__item color-gray">
+                      <span class="t4s-pr-color__name">Blue</span>
+                      <span class="t4s-pr-color__value bg_color_blue lazyloadt4sed"></span>
+                    </span>
+                     <span class="t4s-pr-color__item color-pink">
+                    <span class="t4s-pr-color__name">Blue</span>
+                    <span class="t4s-pr-color__value bg_color_blue lazyloadt4sed"></span>
+                  </span>
+                  <span class="t4s-pr-color__item color-yellow ">
+                  <span class="t4s-pr-color__name">Blue</span>
+                  <span class="t4s-pr-color__value bg_color_blue lazyloadt4sed"></span>
+                </span>
+            
+              </div>
+              <div class="main-icon">
+                <div class="wishlist">
+                  <div class="wishlist-icon">
+                    <span class="tooltip">Browser wishlist</span>
+                   <i class="fa-regular fa-heart"></i>
+                  </div>
+              </div>
+                <div class="quick-view">
+                   <span class="tooltiptext">Quick view</span>
+                    <svg class="svg-icon" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M512.042667 682.666667c-94.122667 0-170.666667-76.544-170.666667-170.666667s76.544-170.666667 170.666667-170.666667 170.666667 76.544 170.666666 170.666667-76.586667 170.666667-170.666666 170.666667z m0-298.666667c-70.570667 0-128 57.429333-128 128s57.429333 128 128 128 128-57.429333 128-128-57.429333-128-128-128z"></path><path d="M512.042667 810.666667C267.989333 810.666667 66.56 603.562667 10.666667 540.074667a42.922667 42.922667 0 0 1-0.085334-56.106667C66.517333 420.48 267.989333 213.333333 512.042667 213.333333c243.797333 0 445.098667 206.72 501.205333 270.378667l0.256 0.298667c13.866667 15.957333 13.866667 40.021333 0 55.978666C957.525333 603.52 756.053333 810.666667 512.042667 810.666667z m0-554.666667C285.909333 256 95.573333 452.010667 42.666667 512.128 95.616 571.989333 285.866667 768 512.042667 768c226.133333 0 416.426667-196.010667 469.376-256.128C928.426667 452.010667 738.133333 256 512.042667 256z"></path></svg>
+                </div>
+              </div>
+            </a>
+            <div class="t4s-product-btns">
+                  <a href="#" class="t4s-pr-item-btn t4s-pr-addtocart t4s-tooltip-actived" dat-qty="1">
+                    <span class="Quick-Shop">QUICK SHOP</span>
+                    <span class="shop-icon"> 
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                          </svg></span>
+                    </a>
+               </div>
+        </div>
+    
+    {% endfor %}
+  </div>
+  
+     <input type="hidden" value="{{ paginate.next.url }}" data-next-url>
+           <input type="hidden" value="{{ paginate.pages }}" data-total-pages>
+           <input type="hidden" value="{{ paginate.current_page  }}" data-current-page>
+        <div class="load-more_wrap">
+          <button class="btn js-load-more">
+              <a class = "#">Load more</a>
+            <svg class="t4s-btn-icon" viewBox="0 0 32 32"><path d="M 15 4 L 15 24.0625 L 8.21875 17.28125 L 6.78125 18.71875 L 15.28125 27.21875 L 16 27.90625 L 16.71875 27.21875 L 25.21875 18.71875 L 23.78125 17.28125 L 17 24.0625 L 17 4 Z"></path></svg>
+          </button>
+        </div>
+    </div> 
+
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": [
+      {
+        "type":"collection",
+        "id":"collection",
+        "label":"collection"
+      },
+       {
+      "type": "range",
+      "label": "Number of Products",
+      "id": "product-number",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "default": 6
+    }
+    ],
+     "presets" : [
+    {
+      "name" : "try-code-grid"
+    }
+  ]
+  }
+{% endschema %}
+
+<style>
+.container {
+    max-width: 1200px;
+  margin:0 auto;
+}
+  .product-main{
+   display: flex;
+    flex-wrap:wrap;
+    width:100%;
+  }
+ .over-flow img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+  .over-flow {
+    overflow: hidden;
+        height: 90%;
+}
+  .title{
+        margin: 10px 0px 0px;
+       font-size: 14px;
+    color: #4d5959;
+    font-weight: 900;
+  }
+  .price{
+     margin: 0px 0px 10px 0px;
+    font-size: 14px;
+  }
+.product {
+    width: 33.33%;
+    display: flex;
+    text-align: center;
+    position: relative;
+   padding: 0px 15px 30px 15px;
+    overflow: hidden;
+    transition: .5s ease;
+    
+}
+  .product-info{
+       margin: 10px 0px 40px;
+  }
+.load-more_wrap {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+button.btn.js-load-more {
+    overflow: hidden;
+}
+ button a {
+    color: #ffff;
+}
+
+button.btn.js-load-more span {
+    padding-right: 10px;
+}
+  svg.t4s-btn-icon {
+    width: 18px;
+    height: 18px;
+    fill: currentcolor !important;
+    color: #fff;
+    margin-left: 8px;
+    cursor: pointer;
+}
+  button.btn.js-load-more {
+    font-size: 14px;
+    letter-spacing: 0px;
+    min-height: 52px;
+    padding: 0 45px;
+}
+  button.btn.js-load-more {
+    display: flex;
+    align-items: center;
+    background-color:#b59677;
+    border:none;
+    margin: 30px 0px;
+    cursor: pointer;
+}
+  .main-icon {
+    position: absolute;
+    top: 30px;
+    right: 27px;
+    background-color: #ffff;
+    transition: .5s ease;
+    display: none;
+}
+  .wishlist, .quick-view {
+    padding: 5px 10px;
+    transition: .5s ease;
+}
+  .wishlist, .quick-view:hover {
+    color: black;
+}
+  .wishlist, .wishlist-icon:hover {
+    fill: currentColor !important;
+}
+  .tooltip {
+    visibility: hidden;
+    width: 120px;
+    right: 40px;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 3px 5px;
+    position: absolute;
+    z-index: 1;
+}
+  .wishlist-icon i {
+    display: block;
+}
+  .product:hover .main-icon{
+    display:block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    z-index:8888;
+  }
+  .wishlist:hover {
+    background: #b59677;
+    color:#fff;
+}
+ .quick-view:hover {
+     background: #b59677;
+    color:#fff;
+}
+  .quick-view svg {
+    width: 15px;
+    height: 15px;
+}
+  .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    right: 40px;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 3px 5px;
+    position: absolute;
+    z-index: 1;
+}
+  .quick-view:hover .tooltiptext{
+    display:block;
+  }
+  .wishlist, .quick-view {
+    padding: 5px 10px;
+    transition: .5s ease;
+}
+  .color-item{
+    display: inline-flex;
+  }
+  .t4s-pr-color__item {
+    padding: 1px;
+    margin: 4px;
+    border-color:#ddd;
+    border: 1px solid #ddd;
+    cursor: pointer;
+/*     display: inline-flex; */
+    border-radius: 50%;
+    width: 18px;
+    vertical-align: top;
+    height: 18px;
+    background-color: red;
+    margin: 0px;
+}
+   .t4s-pr-color__item:hover{
+     border:2px solid black;
+   }
+  span.t4s-pr-color__name {
+    display: none;
+}
+  .bg_color_blue {
+    --t4s-bg-color: #a8bcd4;
+}
+  .color-gray {
+    background-color: #a8bcd4;
+}
+  .color-green {
+    background-color: green;
+}
+  .color-pink {
+    background-color: #fcc6de;
+}
+  .color-yellow {
+    background-color: yellow;
+}
+  .product:hover .product-btns {
+    display: block;
+    transition: .5s ease;
+    z-index: 99999999;
+}
+  .t4s-product-btns:before {
+        content: "";
+        color: white;
+        font-size: 30px;
+        font-family: sans-serif;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 100%;
+        transition: all 0.2s;
+    }
+    .t4s-product-btns:hover:before {
+        top: 0;
+    }
+    .t4s-product-btns {
+        position: absolute;
+        /* margin-top: 130px; */
+        width: 92.5%;
+        height: 50px;
+        bottom: 95px;
+        background: #b59677;
+        overflow: hidden;
+        display:none;
+    }
+  .product:hover .t4s-product-btns{
+        display:block;
+        z-index: 8888;
+  }
+ .t4s-product-btns:hover .reveal .hidden {
+        display:block;
+       
+  }
+  
+    .shop-icon{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s;
+        color: #fff;
+      
+    }
+    .t4s-product-btns:hover .shop-icon {
+        transform: translateY(-100%);
+    }
+    .Quick-Shop {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s;
+        color: #fff;
+    }
+    .t4s-product-btns:hover .Quick-Shop {
+        transform: translateY(-100%);
+    } 
+  
+/* ========== */
+   
+</style>
