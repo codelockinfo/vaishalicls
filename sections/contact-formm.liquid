@@ -328,19 +328,17 @@
     }
   </style>
 
-
-
   <script>
     // Get the modal
-    varmodal=document.getElementById(
+    var modal=document.getElementById(
       "myModal");
 
     // Get the button that opens the modal
-    varbtn=document.getElementById(
+    var btn=document.getElementById(
       "contact-Btn");
 
     // Get the <span> element that closes the modal
-    varspan=document.getElementsByClassName(
+    var span=document.getElementsByClassName(
       "close")
     [
       0];
@@ -348,6 +346,7 @@
     // When the user clicks the button, open the modal
     btn.onclick=function()
     {
+      console.log("vaishu");
       modal.style.display="block";
     }
 
