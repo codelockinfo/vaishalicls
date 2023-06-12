@@ -1,4 +1,4 @@
-<button id="contact-Btn">contact form</button> 
+<button id="contact-Btn">contact form</button>
 
 <div id="myModal" class="modal">
 
@@ -7,55 +7,106 @@
     <span class="close">&times;</span>
     <h1>Contact</h1>
     {% form 'contact' %}
-  {{ form.errors | default_errors }}
+      {{ form.errors | default_errors }}
       <div class="contact__fields">
         <div class="field">
-          <input class="field__input" autocomplete="name" type="text" id="ContactForm-name" name="contact[FIRST NAME]" value="" placeholder="Name">
+          <input
+            class="field__input"
+            autocomplete="name"
+            type="text"
+            id="ContactForm-name"
+            name="contact[FIRST NAME]"
+            value=""
+            placeholder="Name">
           <label class="field__label" for="ContactForm-name">FIRST NAME</label>
         </div>
-          <div class="field">
-          <input class="field__input" autocomplete="name" type="text" id="ContactForm-name" name="contact[LAST NAME]" value="" placeholder="Name">
+        <div class="field">
+          <input
+            class="field__input"
+            autocomplete="name"
+            type="text"
+            id="ContactForm-name"
+            name="contact[LAST NAME]"
+            value=""
+            placeholder="Name">
           <label class="field__label" for="ContactForm-name">LAST NAME</label>
         </div>
         <div class="field field--with-error">
-          <input autocomplete="email" type="email" id="ContactForm-email" class="field__input" name="contact[email]" spellcheck="false" autocapitalize="off" value="" aria-required="true" placeholder="Email">
+          <input
+            autocomplete="email"
+            type="email"
+            id="ContactForm-email"
+            class="field__input"
+            name="contact[email]"
+            spellcheck="false"
+            autocapitalize="off"
+            value=""
+            aria-required="true"
+            placeholder="Email">
           <label class="field__label" for="ContactForm-email">Email
-            <span aria-hidden="true">*</span></label>
+            <span aria-hidden="true">*</span>
+          </label>
         </div>
-           <div class="field">
-        <input type="tel" id="ContactForm-phone" class="field__input" autocomplete="tel" name="contact[Phone number]" pattern="[0-9\-]*" value="" placeholder="Phone number">
-        <label class="field__label" for="ContactForm-phone">Phone number</label>
-      </div>
+        <div class="field">
+          <input
+            type="tel"
+            id="ContactForm-phone"
+            class="field__input"
+            autocomplete="tel"
+            name="contact[Phone number]"
+            pattern="[0-9\-]*"
+            value=""
+            placeholder="Phone number">
+          <label class="field__label" for="ContactForm-phone">Phone number</label>
+        </div>
       </div>
 
-      
- <div class="input-id">
-      <div class="request-type-contact">
-        <select id="request-type-contact" >
-          <option>COUNTRY</option>
-          <option>SHIPPING</option>
-          <option>CUSTOM ORDER</option>
-          <option>OTHER</option>
-        </select>
-      </div>
-      
-        <div class="field">
-        <input type="text" id="ContactForm-phone" class="field__input" autocomplete="tel" name="contact[Postal code]" pattern="[0-9\-]*" value="" placeholder="Postal code">
-        <label class="field__label" for="ContactForm-phone">Postal code</label>
-      </div>
+
+      <div class="input-id">
+        <div class="request-type-contact">
+          <select id="request-type-contact">
+            <option>COUNTRY</option>
+            <option>SHIPPING</option>
+            <option>CUSTOM ORDER</option>
+            <option>OTHER</option>
+          </select>
         </div>
-    <div class="field">
-        <input type="text" id="ContactForm-phone" class="field__input"   name="contact[address]"  placeholder="address">
-        <label class="field__label" >ADDRESS</label>
+
+        <div class="field">
+          <input
+            type="text"
+            id="ContactForm-phone"
+            class="field__input"
+            autocomplete="tel"
+            name="contact[Postal code]"
+            pattern="[0-9\-]*"
+            value=""
+            placeholder="Postal code">
+          <label class="field__label" for="ContactForm-phone">Postal code</label>
+        </div>
       </div>
- <div class="field">
-        <input type="text" id="ContactForm-phone" class="field__input"  name="contact[address Complement]" placeholder="Phone number">
+      <div class="field">
+        <input
+          type="text"
+          id="ContactForm-phone"
+          class="field__input"
+          name="contact[address]"
+          placeholder="address">
+        <label class="field__label">ADDRESS</label>
+      </div>
+      <div class="field">
+        <input
+          type="text"
+          id="ContactForm-phone"
+          class="field__input"
+          name="contact[address Complement]"
+          placeholder="Phone number">
         <label class="field__label" for="ContactForm-phone">address Complement</label>
       </div>
-  <div class="address">
-    <input type="submit" value="SEND" />
-  </div>
-{% endform %}
+      <div class="address">
+        <input type="submit" value="SEND" />
+      </div>
+    {% endform %}
   </div>
 </div>
 
@@ -64,22 +115,21 @@
 {% schema %}
   {
     "name": "popup",
-    "settings": [    
-          {
-        "id" : "heading",
-        "type" : "text",
-        "label" : "Heading"
-      },
-        {
-      "type": "textarea",
-      "id": "message",
-      "label": "Welcome message",
-      "default": "Welcome to my shop!"
-}
-    ],
-    "presets" : [
+    "settings": [
       {
-        "name" : "contact-sec"
+        "id": "heading",
+        "type": "text",
+        "label": "Heading"
+      }, {
+        "type": "textarea",
+        "id": "message",
+        "label": "Welcome message",
+        "default": "Welcome to my shop!"
+      }
+    ],
+    "presets": [
+      {
+        "name": "contact-sec"
       }
     ]
   }
@@ -87,67 +137,67 @@
 
 
 <style>
-  *{
-    padding:0px;
-    margin:0px;
-    over-flow:hidden;
+  * {
+    padding: 0;
+    margin: 0;
+    over-flow: hidden;
   }
-    button#contact-Btn {
+  button#contact-Btn {
     background-color: black;
     color: white;
     padding: 10px 20px;
-    margin: 20px 0px 0px 50px;
-}
-    select{
-    -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+    margin: 20px 0 0 50px;
   }
-.modal {
-  display: none; 
-  position: fixed; 
-  z-index: 5; 
-  top: 0; 
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.4);
-}
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
 
-.modal-content-form {
+  .modal-content-form {
     background-color: #fefefe;
     margin: 160px auto;
     padding: 37px 36px 70px 80px;
     border: 1px solid #888;
     width: 100%;
     max-width: 1150px;
-}
+  }
 
-.close {
+  .close {
     color: #fff;
     float: right;
     font-size: 22px;
-/*     font-weight: bold; */
+    /*     font-weight: bold; */
     background-color: black;
-    padding: 0px 10px;
-}
+    padding: 0 10px;
+  }
 
-.close:hover,
-.close:focus {
-  color: #aaaaaa;
-  text-decoration: none;
-  cursor: pointer;
-}
-  button#contact-Btn:hover{
-      cursor: pointer;
+  .close:hover,
+  .close:focus {
+    color: #aaaaaa;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  button#contact-Btn:hover {
+    cursor: pointer;
   }
   button#contact-Btn {
     background-color: black;
     color: white;
     padding: 10px 20px;
-    margin: 20px 0px 0px 50px;
-}
+    margin: 20px 0 0 50px;
+  }
   .modal-content-form h1 {
     font-family: 'Poppins';
     font-style: normal;
@@ -158,56 +208,59 @@
     align-items: center;
     text-transform: uppercase;
     color: #000000;
-    padding: 0px 0px 60px 0px;
+    padding: 0 0 60px;
 
-}
+  }
   .input-id {
     display: flex;
     justify-content: space-between;
-}
-form#contact_form {
+  }
+  form#contact_form {
     max-width: 650px;
-}
+  }
 
 
   input#first-name {
     width: 316px;
-}
-    input[type="text"], input[type="email"],input[type="tel"], input[type="text-area"] {
-     border: none;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="text-area"] {
+    border: none;
     outline: none;
     background: none;
     box-shadow: none;
-      }
-/*   input#message {
+  }
+  /*   input#message {
       border: 1px solid #CECDC9;
     padding:10px;
   } */
   input#first-name {
     border: 1px solid #CECDC9;
-        padding: 10px;
-}
-input::placeholder {
-        color: #CECDC9;
-        opacity: 1;
-      }
-.input-name {
+    padding: 10px;
+  }
+  input::placeholder {
+    color: #CECDC9;
+    opacity: 1;
+  }
+  .input-name {
     margin-bottom: 13px;
-}
+  }
 
-input#address {
+  input#address {
     width: 100%;
     border: 1px solid #CECDC9;
     padding: 10px;
-}
-input[type="submit"] {
+  }
+  input[type="submit"] {
     background-color: black;
     color: #ffff;
     padding: 13px 20px;
     width: 362px;
     margin-top: 25px;
-}
-select#request-type-contact {
+  }
+  select#request-type-contact {
     width: 316px;
     padding: 15px;
     border: none;
@@ -217,90 +270,101 @@ select#request-type-contact {
     border: 1px solid #212b36;
     color: #5f5d53;
     margin-right: 20px;
-}
+  }
 
   .contact__fields {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 2rem;
-    
-}
+
+  }
   .field {
     margin-bottom: 13px;
-}
+  }
 
-@media (max-width:1199px){
+  @media(max-width:1199px) {
+    .modal-content-form {
+      background-color: #fefefe;
+      margin: 160px auto;
+      padding: 37px 36px 70px 80px;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 1150px;
+    }
+  }
+
+  @media(max-width:768px) {
+
+    .modal-content-form h1 {
+      font-size: 75px;
+    }
+    .contact__fields {
+      display: inherit;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 2rem;
+
+    }
+    @media(max-width:576px) {
+
+      .modal-content-form h1 {
+        font-size: 65px;
+      }
       .modal-content-form {
-    background-color: #fefefe;
-    margin: 160px auto;
-    padding: 37px 36px 70px 80px;
-    border: 1px solid #888;
-    width: 90%;
-    max-width: 1150px;
-}
-}
-
-@media (max-width:768px){
-
-  .modal-content-form h1 {
-    font-size:75px;
-  }
-  .contact__fields {
-    display: inherit;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 2rem;
-
-}
-@media (max-width:576px){
-
-  .modal-content-form h1 {
-    font-size:65px;
-  }
-  .modal-content-form {
-    padding: 37px 36px 70px 36px;
-    border: 1px solid #888;
-}
-}
-@media (max-width:480px){
- .modal-content-form h1 {
-    font-size:45px;
-  }
-  input[type="submit"] {
-    background-color: black;
-    color: #ffff;
-    padding: 13px 20px;
-    width: 250px;
-    margin-top: 25px;
-}
-}
-</style>
+        padding: 37px 36px 70px;
+        border: 1px solid #888;
+      }
+    }
+    @media(max-width:480px) {
+      .modal-content-form h1 {
+        font-size: 45px;
+      }
+      input[type="submit"] {
+        background-color: black;
+        color: #ffff;
+        padding: 13px 20px;
+        width: 250px;
+        margin-top: 25px;
+      }
+    }
+  </style>
 
 
 
-<script>
-// Get the modal
-var modal = document.getElementById("myModal");
+  <script>
+    // Get the modal
+    varmodal=document.getElementById(
+      "myModal");
 
-// Get the button that opens the modal
-var btn = document.getElementById("contact-Btn");
+    // Get the button that opens the modal
+    varbtn=document.getElementById(
+      "contact-Btn");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+    // Get the <span> element that closes the modal
+    varspan=document.getElementsByClassName(
+      "close")
+    [
+      0];
 
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+    // When the user clicks the button, open the modal
+    btn.onclick=function()
+    {
+      modal.style.display="block";
+    }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+    // When the user clicks on <span> (x), close the modal
+    span.onclick=function()
+    {
+      modal.style.display="none";
+    }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick=function(
+      event)
+    {
+      if(
+        event.target==modal)
+      {
+        modal.style.display="none";
+      }
+    }
+  </script>
